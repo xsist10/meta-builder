@@ -1,0 +1,441 @@
+
+/* Core Containers */
+table.form {
+    width: 100%;
+    outline: 1px solid #666;
+    border: 2px solid #fff;
+    background: #F9F9F9;
+    margin: 10px 0 15px 0;
+    padding: 5px;
+    outline-radius: 4px;
+    -moz-outline-radius: 4px;
+    -webkit-outline-radius: 4px;
+}
+table.form thead.form-head {
+}
+table.form tbody.form-body {
+}
+table.form td.form-header {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+table.form td.form-subheader {
+    font-size: 12px;
+    color: #666;
+    padding: 0 0 7px 1px;
+}
+table.form td {
+    font-family: "Bitstream Vera Sans", "Verdana", sans-serif;;
+    font-size: 12px;
+}
+table.form td.form-copy {
+    outline: 1px solid #999;
+    border: 2px solid #fff;
+    background: url(../../images/16x16/bell.png) 10px 10px no-repeat #FFF7D3;
+    padding: 10px 10px 10px 36px;
+    outline-radius: 4px;
+    -moz-outline-radius: 4px;
+    -webkit-outline-radius: 4px;
+}
+table.form td.form-label {
+    width: 150px;
+    padding: 10px 5px 10px 15px;
+    color: #000;
+    text-align: right;
+    vertical-align: top;
+    border-top: 1px dashed #ccc;
+}
+table.form td.form-value {
+    padding: 8px 4px 8px 4px;
+    border-top: 1px dashed #ccc;
+}
+table.form td.form-value span.description {
+    font-size: 10px;
+    color: #666;
+}
+table.form td.form-inline-copy {
+    text-align: center;
+    padding: 8px 4px 8px 4px;
+    border-top: 1px dashed #ccc;
+}
+table.form ul.radio-list {
+	max-height: 200px;
+	overflow-y: auto;
+}
+table.form ul.checkbox-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+table.blocks td.block {
+    padding: 10px;
+}
+
+table.grid {
+    width: 100%;
+    border-collapse: collapse;
+    outline: 1px solid #666;
+    border: 2px solid #fff;
+    background: #F9F9F9;
+    margin: 10px 0 15px 0;
+    padding: 5px;
+    outline-radius: 4px;
+    -moz-outline-radius: 4px;
+    -webkit-outline-radius: 4px;
+}
+table.grid td {
+    font-family: "Bitstream Vera Sans", "Verdana", sans-serif;;
+    font-size: 11px;
+    padding: 3px 5px 3px 5px;
+}
+
+table.grid td.grid-header {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px;
+    color: #fff;
+    background: url(../../images/other/gradient-blue-01.jpg) top left repeat-x #000;
+}
+
+table.grid .grid-column {
+    font-size: 11px;
+    text-align: center;
+    border: 1px solid #CDC3B7;
+    padding: 5px 20px 5px 5px;
+    color: #000;
+    background-color: #f5f0e5;
+}
+
+table.grid td.grid-column:hover {
+    color: #D49768;
+    cursor: pointer;
+}
+table.grid td.grid-sort-alpha {
+    background: url(../../images/16x16/sort.png) right 4px no-repeat;
+}
+table.grid td.grid-sort-numeric {
+    background: url(../../images/16x16/sort.png) right 4px no-repeat;
+}
+table.grid td.grid-sort-date {
+    background: url(../../images/16x16/sort.png) right 4px no-repeat;
+}
+
+table.grid td.sorted-asc-aplha {
+    background-image: url(../../images/16x16/sort-alphabet.png);
+}
+table.grid td.sorted-desc-aplha {
+    background-image: url(../../images/16x16/sort-alphabet-descending.png);
+}
+table.grid td.sorted-asc-numeric {
+    background-image: url(../../images/16x16/sort-number.png);
+}
+table.grid td.sorted-desc-numeric {
+    background-image: url(../../images/16x16/sort-number-descending.png);
+}
+table.grid td.sorted-asc-date {
+    background-image: url(../../images/16x16/sort-date.png);
+}
+table.grid td.sorted-desc-date {
+    background-image: url(../../images/16x16/sort-date-descending.png);
+}
+table.grid tbody.grid-dataset {
+    max-height: 300px;
+}
+table.grid tr.grid-row {
+    cursor: pointer;
+}
+table.grid tr.selected td {
+    background-color: #edd !important;
+}
+table.grid tr.warning td {
+    background-color: #fdd !important;
+}
+table.grid tr.grid-group-header td {
+	font-weight: bold;
+	background: #ddd;
+}
+table.grid tr.grid-row:hover td {
+    background-color: #dde;
+    background-repeat: repeat-x;
+    background-attachment: scroll;
+    background-position: 50% 50%;
+}
+table.grid td.grid-cell {
+    border: 1px solid #CDC3B7;
+    background: #fff;
+}
+table.grid td.row-odd {
+    background-color: #fff;
+}
+
+table.grid td.row-even {
+    background-color: #fff9f0;
+}
+
+table.grid input[type=submit] {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #337fa0;
+    cursor: pointer;
+    padding: 2px 2px 0 2px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+table.grid input[type=submit]:hover {
+    color: #135f80;
+}
+
+table.grid input[type=submit].add       { padding-left: 18px; background: url(../../images/16x16/plus.png) 2px 2px no-repeat; }
+table.grid input[type=submit].delete    { padding-left: 18px; background: url(../../images/16x16/cross.png) 2px 2px no-repeat; }
+table.grid input[type=submit].search    { padding-left: 18px; background: url(../../images/16x16/magnifier.png) 2px 2px no-repeat; }
+table.grid input[type=submit].update    { padding-left: 18px; background: url(../../images/16x16/disk.png) 2px 2px no-repeat; }
+table.grid input[type=submit].execute   { padding-left: 18px; background: url(../../images/16x16/gear.png) 2px 2px no-repeat; }
+
+table.grid td.column-odd {
+}
+table.grid td.column-even {
+}
+
+table.grid td.sorted {
+    background: #eef;
+}
+
+div.grid-paging {
+    height: 24px;
+    margin-bottom: 10px;
+}
+div.grid-paging span.page {
+    display: block-inline;
+    padding: 1px 5px;
+    margin: 2px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #fff;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    outline: 1px solid #666;
+    -moz-outline-radius: 4px;
+    -webkit-outline-radius: 4px;
+    outline-radius: 4px;
+}
+div.grid-paging span.page:hover {
+    background: #ddd;
+    color: #333;
+}
+div.grid-paging span.active {
+    background: #519CBC;
+    color: #fff;
+}
+div.grid-paging a
+{
+    color: #337fa0;
+}
+div.grid-paging span.active a
+{
+	color: #fff;
+}
+div.grid-paging a:hover
+{
+    color: #333;
+}
+input.grid-checkbox-checked {
+    background: url(../../images/16x16/tick.png) top left no-repeat;
+}
+div.grid-checkbox {
+    width: 16px;
+    height: 16px;
+    background: #f00;
+}
+div.grid-checkbox-checked {
+    background: url(../../images/16x16/tick.png) top left no-repeat;
+}
+div.grid-checkbox-unchecked {
+    background: url(../../images/16x16/untick.png) top left no-repeat;
+}
+
+input.grid-radio-checked {
+    background: url(../../images/16x16/tick.png) top left no-repeat;
+}
+div.grid-radio {
+    width: 16px;
+    height: 16px;
+    background: #f00;
+}
+div.grid-radio-checked {
+    background: url(../../images/16x16/radio-toggle.png) top left no-repeat;
+}
+div.grid-radio-unchecked {
+    background: url(../../images/16x16/radio-untoggle.png) top left no-repeat;
+}
+
+/* Element Formatters */
+input.input-hint {
+    color: #999;
+}
+input.date {
+	background-image: url(../../images/16x16/calendar.png);
+	background-position: 2px 2px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+
+/* Messages */
+.validation-error {
+    /* supply height to ensure consistent positioning for every browser */
+    height: 15px;
+	font-size: 11px;
+	border: 1px solid #900;
+	color: #fff;
+	background-color: #c00;
+/*    background-color: #fffe36;
+	border: 1px solid #e1e16d;
+    color: #000;*/
+    padding: 3px 10px;
+    margin-left: -2px;
+
+
+    /* CSS3 spicing for mozilla and webkit */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius-bottomleft: 0;
+    -moz-border-radius-topleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -webkit-border-top-left-radius: 0;
+
+    -moz-box-shadow: 0 0 6px #ddd;
+    -webkit-box-shadow: 0 0 6px #ddd;
+}
+
+/* jQuery Tools css */
+.tooltip {
+	/* supply height to ensure consistent positioning for every browser */
+	z-index:1000;
+    height: 15px;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    font-size: 11px;
+    color: #0150D1;
+    padding: 3px 10px;
+    margin-left: -2px;
+
+
+    /* CSS3 spicing for mozilla and webkit */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius-bottomleft: 0;
+    -moz-border-radius-topleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -webkit-border-top-left-radius: 0;
+
+    -moz-box-shadow: 0 0 6px #ddd;
+    -webkit-box-shadow: 0 0 6px #ddd;
+}
+
+#calroot {
+	/* place on top of other elements. set a higher value if nessessary */
+	z-index:10000;
+
+	margin-top:-1px;
+	width:198px;
+	padding:2px;
+	background-color:#fff;
+	font-size:11px;
+	border:1px solid #ccc;
+
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+
+	-moz-box-shadow: 0 0 15px #666;
+	-webkit-box-shadow: 0 0 15px #666;
+}
+#calhead {
+	padding:2px 0;
+	height:22px;
+}
+#caltitle {
+	font-size:14px;
+	color:#0150D1;
+	float:left;
+	text-align:center;
+	width:155px;
+	line-height:20px;
+	text-shadow:0 1px 0 #ddd;
+}
+#calnext, #calprev {
+	display:block;
+	width:20px;
+	height:20px;
+	background:transparent url(../../images/other/previous.gif) no-repeat scroll center center;
+	float:left;
+	cursor:pointer;
+}
+#calnext {
+	background-image:url(../../images/other/next.gif);
+	float:right;
+}
+#calprev.caldisabled, #calnext.caldisabled {
+	visibility:hidden;
+}
+#caltitle select {
+	font-size:10px;
+}
+#caldays {
+	height:14px;
+	border-bottom:1px solid #ddd;
+}
+#caldays span {
+	display:block;
+	float:left;
+	width:28px;
+	text-align:center;
+}
+#calweeks {
+	background-color:#fff;
+	margin-top:4px;
+}
+.calweek {
+	clear:left;
+	height:22px;
+}
+.calweek a {
+	display:block;
+	float:left;
+	width:27px;
+	height:20px;
+	text-decoration:none;
+	font-size:11px;
+	margin-left:1px;
+	text-align:center;
+	line-height:20px;
+	color:#666;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+.calweek a:hover, .calfocus {
+	background-color:#ddd;
+}
+a.calsun {
+	color:red;
+}
+a.caloff {
+	color:#ccc;
+}
+a.caloff:hover {
+	background-color:rgb(245, 245, 250);
+}
+a.caldisabled {
+	background-color:#efefef !important;
+	color:#ccc	!important;
+	cursor:default;
+}
+#calcurrent {
+	background-color:#498CE2;
+	color:#fff;
+}
+#caltoday {
+	background-color:#333;
+	color:#fff;
+}
