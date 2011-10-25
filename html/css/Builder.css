@@ -32,7 +32,7 @@ table.form td {
 table.form td.form-copy {
     outline: 1px solid #999;
     border: 2px solid #fff;
-    background: url(../../images/16x16/bell.png) 10px 10px no-repeat #FFF7D3;
+    background: url(../images/16x16/bell.png) 10px 10px no-repeat #FFF7D3;
     padding: 10px 10px 10px 36px;
     outline-radius: 4px;
     -moz-outline-radius: 4px;
@@ -94,7 +94,7 @@ table.grid td.grid-header {
     font-size: 12px;
     padding: 5px;
     color: #fff;
-    background: url(../../images/other/gradient-blue-01.jpg) top left repeat-x #000;
+    background: url(../images/other/gradient-blue-01.jpg) top left repeat-x #000;
 }
 
 table.grid .grid-column {
@@ -111,32 +111,32 @@ table.grid td.grid-column:hover {
     cursor: pointer;
 }
 table.grid td.grid-sort-alpha {
-    background: url(../../images/16x16/sort.png) right 4px no-repeat;
+    background: url(../images/16x16/sort.png) right 4px no-repeat;
 }
 table.grid td.grid-sort-numeric {
-    background: url(../../images/16x16/sort.png) right 4px no-repeat;
+    background: url(../images/16x16/sort.png) right 4px no-repeat;
 }
 table.grid td.grid-sort-date {
-    background: url(../../images/16x16/sort.png) right 4px no-repeat;
+    background: url(../images/16x16/sort.png) right 4px no-repeat;
 }
 
 table.grid td.sorted-asc-aplha {
-    background-image: url(../../images/16x16/sort-alphabet.png);
+    background-image: url(../images/16x16/sort-alphabet.png);
 }
 table.grid td.sorted-desc-aplha {
-    background-image: url(../../images/16x16/sort-alphabet-descending.png);
+    background-image: url(../images/16x16/sort-alphabet-descending.png);
 }
 table.grid td.sorted-asc-numeric {
-    background-image: url(../../images/16x16/sort-number.png);
+    background-image: url(../images/16x16/sort-number.png);
 }
 table.grid td.sorted-desc-numeric {
-    background-image: url(../../images/16x16/sort-number-descending.png);
+    background-image: url(../images/16x16/sort-number-descending.png);
 }
 table.grid td.sorted-asc-date {
-    background-image: url(../../images/16x16/sort-date.png);
+    background-image: url(../images/16x16/sort-date.png);
 }
 table.grid td.sorted-desc-date {
-    background-image: url(../../images/16x16/sort-date-descending.png);
+    background-image: url(../images/16x16/sort-date-descending.png);
 }
 table.grid tbody.grid-dataset {
     max-height: 300px;
@@ -186,11 +186,11 @@ table.grid input[type=submit]:hover {
     color: #135f80;
 }
 
-table.grid input[type=submit].add       { padding-left: 18px; background: url(../../images/16x16/plus.png) 2px 2px no-repeat; }
-table.grid input[type=submit].delete    { padding-left: 18px; background: url(../../images/16x16/cross.png) 2px 2px no-repeat; }
-table.grid input[type=submit].search    { padding-left: 18px; background: url(../../images/16x16/magnifier.png) 2px 2px no-repeat; }
-table.grid input[type=submit].update    { padding-left: 18px; background: url(../../images/16x16/disk.png) 2px 2px no-repeat; }
-table.grid input[type=submit].execute   { padding-left: 18px; background: url(../../images/16x16/gear.png) 2px 2px no-repeat; }
+table.grid input[type=submit].add       { padding-left: 18px; background: url(../images/16x16/plus.png) 2px 2px no-repeat; }
+table.grid input[type=submit].delete    { padding-left: 18px; background: url(../images/16x16/cross.png) 2px 2px no-repeat; }
+table.grid input[type=submit].search    { padding-left: 18px; background: url(../images/16x16/magnifier.png) 2px 2px no-repeat; }
+table.grid input[type=submit].update    { padding-left: 18px; background: url(../images/16x16/disk.png) 2px 2px no-repeat; }
+table.grid input[type=submit].execute   { padding-left: 18px; background: url(../images/16x16/gear.png) 2px 2px no-repeat; }
 
 table.grid td.column-odd {
 }
@@ -241,7 +241,7 @@ div.grid-paging a:hover
     color: #333;
 }
 input.grid-checkbox-checked {
-    background: url(../../images/16x16/tick.png) top left no-repeat;
+    background: url(../images/16x16/tick.png) top left no-repeat;
 }
 div.grid-checkbox {
     width: 16px;
@@ -249,14 +249,14 @@ div.grid-checkbox {
     background: #f00;
 }
 div.grid-checkbox-checked {
-    background: url(../../images/16x16/tick.png) top left no-repeat;
+    background: url(../images/16x16/tick.png) top left no-repeat;
 }
 div.grid-checkbox-unchecked {
-    background: url(../../images/16x16/untick.png) top left no-repeat;
+    background: url(../images/16x16/untick.png) top left no-repeat;
 }
 
 input.grid-radio-checked {
-    background: url(../../images/16x16/tick.png) top left no-repeat;
+    background: url(../images/16x16/tick.png) top left no-repeat;
 }
 div.grid-radio {
     width: 16px;
@@ -264,10 +264,10 @@ div.grid-radio {
     background: #f00;
 }
 div.grid-radio-checked {
-    background: url(../../images/16x16/radio-toggle.png) top left no-repeat;
+    background: url(../images/16x16/radio-toggle.png) top left no-repeat;
 }
 div.grid-radio-unchecked {
-    background: url(../../images/16x16/radio-untoggle.png) top left no-repeat;
+    background: url(../images/16x16/radio-untoggle.png) top left no-repeat;
 }
 
 /* Element Formatters */
@@ -275,7 +275,7 @@ input.input-hint {
     color: #999;
 }
 input.date {
-	background-image: url(../../images/16x16/calendar.png);
+	background-image: url(../images/16x16/calendar.png);
 	background-position: 2px 2px;
 	background-repeat: no-repeat;
 	padding-left: 20px;
@@ -368,12 +368,12 @@ input.date {
 	display:block;
 	width:20px;
 	height:20px;
-	background:transparent url(../../images/other/previous.gif) no-repeat scroll center center;
+	background:transparent url(../images/other/previous.gif) no-repeat scroll center center;
 	float:left;
 	cursor:pointer;
 }
 #calnext {
-	background-image:url(../../images/other/next.gif);
+	background-image:url(../images/other/next.gif);
 	float:right;
 }
 #calprev.caldisabled, #calnext.caldisabled {

@@ -6,7 +6,7 @@
  *
  */
 
-/*$.tools.validator.fn("[minlength]", function(input, value) {
+$.tools.validator.fn("[minlength]", function(input, value) {
     var min = input.attr("minlength");
 
     return value.length >= min ? true :
@@ -48,7 +48,7 @@ $.tools.validator.fn("[custom]", function(input, value)
     );
 
     return false;
-});*/
+});
 
 $(document).ready(function()
 {

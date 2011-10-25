@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * TODO: Fix Date Selection CSS and Date Range
+ * TODO: Fix/remove Input/Session/Message systems
+ * TODO: Add attribution for images and libraries used
+ * 
+ */
+
 /**
  * Configure the autoloader
  */
