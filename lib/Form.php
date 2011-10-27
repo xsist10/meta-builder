@@ -93,7 +93,7 @@ class Builder_Form extends Builder_Base
         $sLabel .= $bRequired ? ' <span class="required">*</span>' : '';
         if (!empty($aRow['image']))
         {
-            $sLabel = '<img align="left" src="' . BuildUrl('html/images/'. $aRow['image']) .'" /> '. $sLabel;
+            $sLabel = '<img align="left" src="' . BuildImage($aRow['image']) .'" /> '. $sLabel;
         }
 
         $this->sResult .= "<tr>\n";
@@ -153,20 +153,12 @@ class Builder_Form extends Builder_Base
 		
 		$this->sResult = '';
 		
-//		$aMessages = Messages::GetMessages();
-//		$this->RenderMessages($aMessages);
-
         if (empty($aMeta['identity']))
         {
             throw new Exception('No identity specified');
         }
-/*      For later release
-        if (empty($aMeta['workflow']))
-        {
-            throw new Exception('No workflow specified');
-        }*/
 
-        empty($aData) && $aData = Session::GetInput($aMeta['identity']);
+        //empty($aData) && $aData = Session::GetInput($aMeta['identity']);
         $this->SetConfig($aMeta, $aData);
 
         $sAction = !empty($aMeta['script']) ? $aMeta['script'] : 'form.php';
@@ -182,6 +174,7 @@ class Builder_Form extends Builder_Base
         $(document).ready(function()
         {
 			$('#" . $aMeta['identity'] . "').validator({
+				inputEvent: 	blur,
 		    	messageClass:   'validation-error'
     		});
     	});

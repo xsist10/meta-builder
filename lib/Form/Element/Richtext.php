@@ -18,7 +18,7 @@ class Builder_Form_Element_Richtext
 					? $aMeta['mode']
 					: 'simple';
 		
-		$sResult .= "<script>
+		return "<script>
 $(document).ready(function()
 {
 	tinyMCE.init({
@@ -33,7 +33,5 @@ $(document).ready(function()
 	});
 });
 </script>";
-		   
-		return $sResult;
 	}
 }

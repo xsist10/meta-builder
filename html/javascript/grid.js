@@ -231,6 +231,9 @@ $(document).ready(function() {
     	{
     		$(this).attr('checked', !$(this).attr('checked'));
     		$(this).parent('td').parent('tr').toggleClass('selected');
+    		$(this).parent('td').find('div.grid-checkbox')
+				.toggleClass('grid-checkbox-checked')
+				.toggleClass('grid-checkbox-unchecked');
     	});
     });
 });

@@ -29,6 +29,11 @@ class Builder_Helper_Validation extends Builder_Helper_Object
         {
             $this->SetMatch($aParam['match']);
         }
+        
+        if (!empty($aParam['num_checked']))
+        {
+        	$this->SetNumChecked($aParam['num_checked']);
+        }
     }
     
     public function SetPattern($sPattern, $sType = '')
@@ -80,5 +85,11 @@ class Builder_Helper_Validation extends Builder_Helper_Object
         $iMax
             && $this->aProperties['length']['max'] = $iMax;
         return $this;
+    }
+    
+    public function SetNumChecked($iNumChecked = 1)
+    {
+    	$this->aProperties['num_checked'] = $iNumChecked;
+    	return $this;
     }
 }

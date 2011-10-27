@@ -84,8 +84,9 @@ class Builder_Form_Element
             return $this->aMeta['value'];
         }
 
+        $mValue = '';
         // Look up post specific input match
-        $mValue = Input::GetPost($this->aMeta['name']);
+        /*$mValue = Input::GetPost($this->aMeta['name']);
         if ($mValue)
         {
             return $mValue;
@@ -103,7 +104,7 @@ class Builder_Form_Element
         if ($mValue)
         {
             return $mValue;
-        }
+        }*/
 
         // Look up data passed
         if (!empty($this->aData[$this->aMeta['name']]))
@@ -155,7 +156,8 @@ class Builder_Form_Element
                 switch ($sField)
                 {
                     case 'name':
-                        $this->aAttributes[$sField] = 'input['. $this->aMeta[$sField] .']';
+                        //$this->aAttributes[$sField] = 'input['. $this->aMeta[$sField] .']';
+                    	$this->aAttributes[$sField] = $this->aMeta[$sField];
                         break;
 
                     case 'hint':
@@ -193,7 +195,7 @@ class Builder_Form_Element
     {
         if (!empty($this->aMeta['image']))
         {
-            $this->aExtras[] = '<img id="'. $this->aMeta['name'] .'-image" src="'. BuildUrl('html/images/'. $this->aMeta['image']) .'" />';
+            $this->aExtras[] = '<img id="'. $this->aMeta['name'] .'-image" src="'. BuildImage($this->aMeta['image']) .'" />';
         }
 
         if (!empty($this->aMeta['description']))
@@ -201,11 +203,11 @@ class Builder_Form_Element
             $this->aExtras[] = '<span id="'. $this->aMeta['name'] .'-description" class="description">'. $this->aMeta['description'] .'</span>';
         }
 
-        $aInlineErrors = Messages::GetInlineErrors($this->aMeta['name']);
+        /*$aInlineErrors = Messages::GetInlineErrors($this->aMeta['name']);
         if ($aInlineErrors && count($aInlineErrors))
         {
             $this->aExtras[] = '<span class="message-error message-error-inline">'. implode('<br/>', $aInlineErrors) .'</span>';
-        }
+        }*/
     }
 
     /**
@@ -235,7 +237,7 @@ class Builder_Form_Element
             // For date/time fields, validation is handled differently
             $iGroupType = $this->___GetGroup($this->aMeta['type']);
             
-            // Build attributions
+            /*// Build attributions
             if (!empty($this->aMeta['validation']['length']['max']))
             {
                 if ($this->aMeta['type'] == self::TYPE_NUMBER
@@ -261,11 +263,8 @@ class Builder_Form_Element
                 {
                     $this->aAttributes['minlength'] = $this->aMeta['validation']['length']['min'];
                 }
-            }
-
-            !empty($this->aMeta['validation']['required'])
-                && $this->aAttributes['required'] = 'required';
-
+            }*/
+            
             // Certain elements don't need custom validation
             // This will be removed later
             $bSkipMatchValidation = false;
@@ -289,7 +288,8 @@ class Builder_Form_Element
                 if (!empty($this->aMeta['validation']['length']['min']))
                 {
                     // For numbers, we don't want to use a min length validation check
-                    if ($this->aMeta['type'] == self::TYPE_NUMBER)
+                    if ($this->aMeta['type'] == self::TYPE_NUMBER
+                    	|| $iGroupType == self::GROUP_TYPE_DATETIME)
                     {
                         $this->aAttributes['min'] = $this->aMeta['validation']['length']['min'];
                     }
@@ -301,7 +301,8 @@ class Builder_Form_Element
                 if (!empty($this->aMeta['validation']['length']['max']))
                 {
                     // For numbers, we don't want to use max length validation check
-                    if ($this->aMeta['type'] == self::TYPE_NUMBER)
+                    if ($this->aMeta['type'] == self::TYPE_NUMBER
+                    	|| $iGroupType == self::GROUP_TYPE_DATETIME)
                     {
                         $this->aAttributes['max'] = $this->aMeta['validation']['length']['max'];
                     }
@@ -312,6 +313,12 @@ class Builder_Form_Element
                             && $this->aAttributes['size'] = $this->aMeta['validation']['length']['max'];
                     }
                 }
+                
+                !empty($this->aMeta['validation']['num_checked'])
+                	&& $this->aAttributes['num_checked'] = $this->aMeta['validation']['num_checked'];
+                
+                !empty($this->aMeta['validation']['required'])
+                	&& $this->aAttributes['required'] = 'required';
 
                 if (!empty($this->aMeta['validation']['pattern']))
                 {
@@ -338,10 +345,13 @@ class Builder_Form_Element
         }
     }
 
-    private function RenderAttributes()
+    private function RenderAttributes($aAttributes = array())
     {
+    	$aAttributes = !empty($aAttributes)
+    					? $aAttributes
+    					: $this->aAttributes;
         $sResult = '';
-        foreach ($this->aAttributes as $sKey => $sValue)
+        foreach ($aAttributes as $sKey => $sValue)
         {
              $sResult .= ' ' . $sKey . '="' . $sValue . '"';
         }
@@ -434,8 +444,11 @@ class Builder_Form_Element
     {
         $sRenderMode = $this->aMeta['render-mode'];
         $sId = $this->aAttributes['id'];
+        $sValidation = !empty($this->aMeta['validation']['num_checked'])
+        				? 'num_checked="' . $this->aMeta['validation']['num_checked'] . '"'
+        				: '';
         
-        $sResult = '<ul class="' . $sRenderMode . '-list" id="' . $sRenderMode . '-list-' . $sId . '">';
+        $sResult = '<ul class="' . $sRenderMode . '-list" id="' . $sRenderMode . '-list-' . $sId . '" '. $sValidation . '>';
         
         if ($sRenderMode == self::TYPE_CHECKBOX)
         {
@@ -456,12 +469,12 @@ class Builder_Form_Element
 
             unset($this->aAttributes['checked']);
             $this->aAttributes['value'] = $aEntry['value'];
-            $this->aAttributes['id'] = $sId .'-'. htmlentities($sName);
+            $this->aAttributes['id'] = $sId .'-'. str_replace(' ', '', htmlentities($sName));
 
             $sLabel = $sName;
             if (!empty($aEntry['image']))
             {
-                $sLabel = '<img src="'. BuildUrl('html/images/'. $aEntry['image']) .'" /> '. $sLabel;
+                $sLabel = '<img src="'. BuildImage($aEntry['image']) .'" /> '. $sLabel;
             }
             
             if (!empty($this->aMeta['value']))
@@ -493,9 +506,7 @@ class Builder_Form_Element
 
     private function RenderSelectList()
     {
-        $sResult = '';
-
-        $sResult .= '<select '. $this->RenderAttributes() .'>' ."\n";
+        $sResult = '<select '. $this->RenderAttributes() .'>' ."\n";
         if (!empty($this->aMeta['list']))
         {
             foreach ($this->aMeta['list'] as $aEntry)
@@ -504,18 +515,20 @@ class Builder_Form_Element
                             ? $aEntry['name']
                             : $aEntry['value'];
 
+                $aAttributes = array('value' => $aEntry['value']);
                 if (!empty($aEntry['image']))
                 {
-                    $sLabel = '<img src="/html/images/'. $aEntry['image'] .'" /> '. $sLabel;
+                	#-> TODO: This only works for Firefox
+                	$aAttributes = array('style' => 'background: url(' . BuildImage($aEntry['image']) . ') 1px 3px no-repeat; padding-left: 20px;');
+                    //$sLabel = '<img src="'. BuildImage($aEntry['image']) .'" /> '. $sLabel;
                 }
 
-                $bSelected = false;
                 if (!empty($this->aMeta['value']) && $aEntry['value'] == $this->aMeta['value'])
                 {
-                    $bSelected = true;
+                	$aAttributes = array('selected' => $aEntry['selected']);
                 }
 
-                $sResult .= '<option value="'. $aEntry['value'] .'"' . ($bSelected ? ' selected="selected"' : '') . '>'. $sLabel .'</option>' ."\n";
+                $sResult .= '<option ' . $this->RenderAttributes($aAttributes) . '>'. $sLabel .'</option>' ."\n";
             }
         }
         $sResult .= '</select>' ."\n";

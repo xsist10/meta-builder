@@ -25,13 +25,34 @@ $.tools.validator.fn("[maxlength]", function(input, value)
     };
 });
 
-$.tools.validator.fn("[type=telephone]", "Please supply a valid telephone number", function(input, value)
+$.tools.validator.fn("[type=telephone]", function(input, value)
 {
-    return /^[0-9\-\(\)\ ]+$/.test(value);
+    return /^[0-9\-\(\)\ ]+$/.test(value) ? true :
+    {
+    	en: "Please supply a valid telephone number"
+    };
+});
+
+$.tools.validator.fn("[num_checked]", function(input, value)
+{
+	var min = input.attr("num_checked");
+	checked_count = $(input).parent('li').parent('ul').children('li').children('input:checked').length;
+	if (checked_count < min)
+	{
+//		$('ul#' + checkbox_group + ' li input').removeClass('valid').addClass('invalid');
+		return {
+	        en: "Please select at least " + min + " option" + (min > 1 ? "s" : "")
+	    };
+	}
+	else
+	{
+//		$('ul#' + checkbox_group + ' li input').removeClass('invalid').addClass('valid');
+		return true;
+	}
 });
 
 $.tools.validator.fn("[custom]", function(input, value)
-{
+{	
     var url = input.attr("custom");
 
     $.getJSON(url,
@@ -52,7 +73,6 @@ $.tools.validator.fn("[custom]", function(input, value)
 
 $(document).ready(function()
 {
-
     // Remove hints when the form submits
     $('input[type=submit]').click(function()
     {

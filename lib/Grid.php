@@ -92,7 +92,10 @@ class Builder_Grid extends Builder_Base
                     $aClasses[] = 'grid-sort-alpha';
                 }
             }
-            $this->sResult .= '<td class="'. implode(' ', $aClasses) .'">'. $aColumn['label'] .'</td>' ."\n";
+            $sLabel = !empty($aColumn['label'])
+            			? $aColumn['label']
+            			: '';
+            $this->sResult .= '<td class="'. implode(' ', $aClasses) .'">' . $sLabel . '</td>' ."\n";
         }
         $this->sResult .= "</tr>\n</thead>\n";
 
@@ -253,8 +256,8 @@ class Builder_Grid extends Builder_Base
         $this->sResult .= "<table class=\"" . implode(' ', $aFlags) . "\" rel=\"" . implode(' ', $aRel) . "\" id=\"" . $aMeta['identity'] . "-table\" cellspacing=\"0\">\n<thead>\n";
         
         // Build Headers
-        !empty($aMeta['header'])    && $this->sResult .= '<tr><td colspan="' . $this->iColSpan . '" class="grid-header">'    . $aMeta['header']    . '</td></tr>' . "\n";
-        !empty($aMeta['subheader']) && $this->sResult .= '<tr><td colspan="' . $this->iColSpan . '" class="grid-subheader">' . $aMeta['subheader'] . '</td></tr>' . "\n";
+        !empty($aMeta['heading'])    && $this->sResult .= '<tr><td colspan="' . $this->iColSpan . '" class="grid-header">'    . $aMeta['heading']    . '</td></tr>' . "\n";
+        !empty($aMeta['subheading']) && $this->sResult .= '<tr><td colspan="' . $this->iColSpan . '" class="grid-subheader">' . $aMeta['subheading'] . '</td></tr>' . "\n";
         
         // Build quick actions (if required, i.e.: more than 10 entries)
         if (in_array('checkbox', $aFlags) && count($this->aData) > 10)
