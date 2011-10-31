@@ -14,6 +14,7 @@ class Builder_Grid extends Builder_Base
 {
     protected $iColCount;
     protected $iColSpan;
+    protected $sGroup;
 
     protected function ConstructGridData($aMeta)
     {
@@ -27,7 +28,8 @@ class Builder_Grid extends Builder_Base
         $aFlags = array('grid' => true);
         foreach ($aMeta['columns'] as $aColumn)
         {
-            if (!empty($aColumn['sort']))
+        	#-> Can't sort columns if we're doing groups
+            if (!empty($aColumn['sort']) && !$this->sGroup)
             {
                 $aFlags['sortable'] = true;
             }
@@ -81,7 +83,7 @@ class Builder_Grid extends Builder_Base
         foreach ($aColumns as $aColumn)
         {
             $aClasses = array('grid-column');
-            if (!empty($aColumn['sort']))
+            if (!empty($aColumn['sort']) && !$this->sGroup)
             {
                 if (in_array($aColumn['sort'], array('alpha', 'numeric')))
                 {

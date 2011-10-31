@@ -136,7 +136,7 @@ try
 	
 	$oElement12 = new Builder_Helper_Element('telephone', 'telephone');
 	$oElement12->SetValidation(new Builder_Helper_Validation(array('required' => true)));
-	$oRow10 = new Builder_Helper_Row('Telephone Number');
+	$oRow10 = new Builder_Helper_Row('Telephone');
 	$oRow10->SetImage('16x16/mobile-phone.png')->AddElement($oElement12);
 	
 	// Build a submit button
