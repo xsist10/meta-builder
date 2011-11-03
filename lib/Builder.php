@@ -6,6 +6,7 @@
  * TODO: Select box images only working in FF and aren't shown on the selected option. Fix when I'm feeling masochistic
  * TODO: Fix the damn jQuery Tools validation for radio/checkbox. See above conditions for fixing
  * TODO: Fix issue where one rich text textarea on a form makes all the other textareas also turn into a rich text textarea
+ * TODO: Add extra paging options (Previous, Next and Jumping)
  */
 
 /**

@@ -123,7 +123,7 @@ try
 	
 	$oColumn5 = new Builder_Helper_Column();
 	$oColumn5->SetName('description')->SetLabel('Description')
-			 ->SetFormat('truncate|40,...');
+			 ->SetFormat('truncate', array(40, '...'));
 	
 	$oColumns = new Builder_Helper_Columns();
 	$oColumns->AddColumn($oColumn1)->AddColumn($oColumn2)

@@ -1,3 +1,8 @@
+*
+{
+	font-family: "Bitstream Vera Sans", "Verdana", sans-serif;
+}
+
 p
 {
 	margin:0;
@@ -10,7 +15,6 @@ input, select, textarea
     border: 1px solid #666;
     padding: 3px;
     color: #024A68;
-    font-family: "Bitstream Vera Sans", "Verdana", sans-serif;
     font-size: 12px;
     border-radius: 3px;
     -moz-border-radius: 3px;
@@ -323,6 +327,7 @@ div.grid-paging {
     margin-bottom: 10px;
 }
 div.grid-paging span.page {
+	font-size: 12px;
     display: block-inline;
     padding: 1px 5px;
     margin: 2px;
