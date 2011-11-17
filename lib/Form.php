@@ -12,6 +12,9 @@
 
 class Builder_Form extends Builder_Base
 {
+	const RENDER_MODE_INPUT_ONLY	= 1;
+	const RENDER_MODE_LABEL_INPUT   = 2;
+	
 	/**
      * Parse through the meta and determine if there are any 'file' type inputs
      * in this form. If there are return the appropriate encoding attribute.
@@ -89,27 +92,46 @@ class Builder_Form extends Builder_Base
             $bRequired = false;
         }
 
+        #-> Build Label
         $sLabel  = !empty($aRow['label']) ? $aRow['label'] : '&nbsp;';
         $sLabel .= $bRequired ? ' <span class="required">*</span>' : '';
         if (!empty($aRow['image']))
         {
             $sLabel = '<img align="left" src="' . BuildImage($aRow['image']) .'" /> '. $sLabel;
         }
-
-        $this->sResult .= "<tr>\n";
-        $this->sResult .= "<td class=\"form-label\"" . (!empty($aRow['id']) ? " id=\"" . $aRow['id'] ."-label\"" : "") . ">" . $sLabel . "</td>\n";
-        $this->sResult .= "<td class=\"form-value\"" . (!empty($aRow['id']) ? " id=\"" . $aRow['id'] ."-value\"" : "") . ">";
-        $oElement = new Builder_Form_Element();
-
+        
+ 		#-> Build Elements       
+        $sElement = '';
         if (!empty($aRow['element']))
         {
+        	$oElement = new Builder_Form_Element();
             foreach ($aRow['element'] as $aElement)
             {
-                $this->sResult .= $oElement->Build($aElement, $this->aData);
+                $sElement .= $oElement->Build($aElement, $this->aData);
             }
+        };
+
+        #-> Build the row's HTML
+        $sRenderMode = !empty($aRow['render-mode'])
+				        	? $aRow['render-mode']
+				        	: '';
+        
+        switch ($sRenderMode)
+        {
+        	case self::RENDER_MODE_INPUT_ONLY:
+        		$this->sResult .= "<tr>\n";
+        		$this->sResult .= "<td class=\"form-value\"" . (!empty($aRow['id']) ? " id=\"" . $aRow['id'] ."-value\"" : "") . " colspan=\"2\">" . $sLabel . " " . $sElement . "</td>\n";
+        		$this->sResult .= "</tr>\n";
+        		break;
+        
+        	case self::RENDER_MODE_LABEL_INPUT:
+        	default:
+        		$this->sResult .= "<tr>\n";
+        		$this->sResult .= "<td class=\"form-label\"" . (!empty($aRow['id']) ? " id=\"" . $aRow['id'] ."-label\"" : "") . ">" . $sLabel . "</td>\n";
+        		$this->sResult .= "<td class=\"form-value\"" . (!empty($aRow['id']) ? " id=\"" . $aRow['id'] ."-value\"" : "") . ">" . $sElement . "</td>\n";
+		        $this->sResult .= "</tr>\n";
+		        break;
         }
-        $this->sResult .= "</td>\n";
-        $this->sResult .= "</tr>\n";
     }
 
     protected function BuildHeading($sHeading)

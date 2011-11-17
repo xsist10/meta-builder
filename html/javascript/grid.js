@@ -17,6 +17,29 @@ $(document).ready(function() {
 		$(this).filter('tbody.grid-dataset tr:even td').removeClass('row-odd').addClass('row-even');
 		return this;
 	};
+	
+	function TogglePreviousNextControls($pager, currentPage, numPages)
+	{
+		// Show/Hide the Previous Button
+		if (currentPage > 0)
+		{
+			$pager.find('span.page-previous').show();
+		}
+		else
+		{
+			$pager.find('span.page-previous').hide();
+		}
+		
+		// Show/Hide the Next Button
+		if (currentPage < numPages - 1)
+		{
+			$pager.find('span.page-next').show();
+		}
+		else
+		{
+			$pager.find('span.page-next').hide();
+		}
+	}
 
 	$('table.paging').each(function() {
 		var currentPage = 0;
@@ -37,17 +60,48 @@ $(document).ready(function() {
 
 		if (numPages > 1) {
 			var $pager = $('<div class="grid-paging"></div>');
+
+			
+			// Add the previous button
+			$('<span class="page page-previous">Previous</span>').bind('click', {
+				'newPage': page
+			}, function(event){
+				currentPage = currentPage > 0
+								? currentPage - 1
+							    : 0;
+				$table.trigger('repaginate');
+				$('span.page[data=' + currentPage + ']').addClass('active').siblings().removeClass('active');
+				
+				TogglePreviousNextControls($pager, currentPage, numPages);
+			}).appendTo($pager).addClass('clickable');
+			
 			for (var page = 0; page < numPages; page++) {
-				$('<span class="page">' + (page + 1) + '</span>').bind('click', {
+				$('<span class="page" data="' + page + '">' + (page + 1) + '</span>').bind('click', {
 					'newPage': page
 				}, function(event){
 					currentPage = event.data['newPage'];
 					$table.trigger('repaginate');
 					$(this).addClass('active').siblings().removeClass('active');
+					
+					TogglePreviousNextControls($pager, currentPage, numPages);
 				}).appendTo($pager).addClass('clickable');
 			}
+			
+			// Add the next button
+			$('<span class="page page-next">Next</span>').bind('click', {
+				'newPage': page
+			}, function(event){
+				currentPage = currentPage < numPages
+								? currentPage + 1
+							    : numPages;
+				$table.trigger('repaginate');
+				$('span.page[data=' + currentPage + ']').addClass('active').siblings().removeClass('active');
+				
+				TogglePreviousNextControls($pager, currentPage, numPages);
+			}).appendTo($pager).addClass('clickable');
 
-			$pager.find('span.page:first').addClass('active');
+			$pager.find('span.page:eq(1)').addClass('active');
+			$pager.find('span.page-previous').hide();
 			$pager.insertAfter($table);
 			$table.trigger('repaginate');
 		}

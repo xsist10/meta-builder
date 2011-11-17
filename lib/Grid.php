@@ -12,6 +12,10 @@
 
 class Builder_Grid extends Builder_Base
 {
+	// Sorting types
+	const SORT_ALPHA				= 'alpha';
+	const SORT_NUMERIC				= 'numeric';
+	
     protected $iColCount;
     protected $iColSpan;
     protected $sGroup;
@@ -85,7 +89,7 @@ class Builder_Grid extends Builder_Base
             $aClasses = array('grid-column');
             if (!empty($aColumn['sort']) && !$this->sGroup)
             {
-                if (in_array($aColumn['sort'], array('alpha', 'numeric')))
+                if (in_array($aColumn['sort'], array(self::SORT_ALPHA, self::SORT_NUMERIC)))
                 {
                     $aClasses[] = 'grid-sort-' . $aColumn['sort'];
                 }
@@ -260,6 +264,7 @@ class Builder_Grid extends Builder_Base
         // Build Headers
         !empty($aMeta['heading'])    && $this->sResult .= '<tr><td colspan="' . $this->iColSpan . '" class="grid-header">'    . $aMeta['heading']    . '</td></tr>' . "\n";
         !empty($aMeta['subheading']) && $this->sResult .= '<tr><td colspan="' . $this->iColSpan . '" class="grid-subheader">' . $aMeta['subheading'] . '</td></tr>' . "\n";
+        !empty($aMeta['copy']) 		 && $this->sResult .= '<tr><td colspan="' . $this->iColSpan . '" class="grid-copy"><div>' . $aMeta['copy']       . '</div></td></tr>' . "\n";
         
         // Build quick actions (if required, i.e.: more than 10 entries)
         if (in_array('checkbox', $aFlags) && count($this->aData) > 10)

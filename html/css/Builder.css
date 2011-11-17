@@ -84,35 +84,45 @@ ul.messages li
 
 ul.messages-warning
 {
-    background: #ffddaa;
-    border: 1px solid #cc9933;
+    background: #fda;
+    border: 1px solid #c93;
 }
 
 ul.messages-warning li
 {
-    color: #996600;
+    color: #960;
 }
 
 ul.messages-notice
 {
-    background: #aaffaa;
-    border: 1px solid #33cc33;
+    background: #afa;
+    border: 1px solid #3c3;
 }
 
 ul.messages-notice li
 {
-    color: #009900;
+    color: #090;
 }
 
 ul.messages-error
 {
-    background: #ffaaaa;
-    border: 1px solid #cc3333;
+    background: #faa;
+    border: 1px solid #c33;
 }
 
 ul.messages-error li
 {
-    color: #990000;
+    color: #900;
+}
+/* Inline Errors */
+span.messages-error
+{
+	color: #900;
+	font-size: 10px;
+}
+span.messages-error-inline
+{
+	display: block;
 }
 
 /* Core Containers */
@@ -135,15 +145,15 @@ table.form tbody.form-body
 }
 table.form td.form-header
 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     padding-bottom: 5px;
 }
 table.form td.form-subheader
 {
-    font-size: 12px;
+    font-size: 14px;
     color: #666;
-    padding: 0 0 7px 1px;
+    padding: 25px 0 7px 1px;
 }
 table.form td
 {
@@ -216,6 +226,22 @@ table.grid td.grid-header {
     padding: 5px;
     color: #fff;
     background: url(../images/other/gradient-blue-01.jpg) top left repeat-x #000;
+}
+table.grid td.grid-subheader
+{
+    font-size: 12px;
+    color: #333;
+    padding: 5px;
+}
+table.grid td.grid-copy div {
+    outline: 1px solid #999;
+    border: 2px solid #fff;
+    background: url(../images/16x16/bell.png) 10px 10px no-repeat #FFF7D3;
+    padding: 10px 10px 10px 36px;
+    margin: 5px 0 5px 0;
+    outline-radius: 4px;
+    -moz-outline-radius: 4px;
+    -webkit-outline-radius: 4px;
 }
 
 table.grid .grid-column {
@@ -395,6 +421,10 @@ div.grid-radio-unchecked {
 /* Element Formatters */
 input.input-hint {
     color: #999;
+}
+input.input-error {
+	border-color: #900;
+	background-color: #fee;
 }
 input.date {
 	background-image: url(../images/16x16/calendar.png);

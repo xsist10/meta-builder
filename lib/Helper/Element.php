@@ -7,7 +7,7 @@ class Builder_Helper_Element extends Builder_Helper_Object
         $this->aProperties['name'] = $sName;
         $this->aProperties['type'] = $sType;
 
-        $this->aAllowedProperties = array('description', 'name', 'value', 'size', 'hint', 'list', 'tooltip', 'autocomplete', 'mode', 'rows', 'cols');
+        $this->aAllowedProperties = array('description', 'name', 'value', 'size', 'hint', 'list', 'tooltip', 'autocomplete', 'mode', 'rows', 'cols', 'error');
     }
 
     public function SetValidation(Builder_Helper_Validation $oValidation)

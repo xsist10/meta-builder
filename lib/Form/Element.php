@@ -32,16 +32,24 @@ class Builder_Form_Element
     const TYPE_FILE                 = 'file';
     const TYPE_EMAIL                = 'email';
     const TYPE_NUMBER               = 'number';
+    const TYPE_TELEPHONE			= 'telephone';
     const TYPE_URL                  = 'url';
     const TYPE_DATE                 = 'date';
     const TYPE_TIME                 = 'time';
     const TYPE_DATETIME             = 'datetime';
     const TYPE_PASSWORD             = 'password';
     const TYPE_CAPTCHA				= 'captcha';
+    const TYPE_LIST					= 'list';
+    const TYPE_HTML					= 'html';
 
     // Element Groups
     const GROUP_TYPE_UNKNOWN        = 0;
     const GROUP_TYPE_DATETIME       = 5;
+    
+    // Render Mode
+    const RENDER_MODE_CHECKBOX		= 'checkbox';
+    const RENDER_MODE_RADIO			= 'radio';
+    const RENDER_MODE_SELECT		= 'select';
 
     // Predefined Validation Regex Matches
     const VALIDATION_ALPHA          = '[a-zA-Z ]';
@@ -201,6 +209,12 @@ class Builder_Form_Element
         if (!empty($this->aMeta['description']))
         {
             $this->aExtras[] = '<span id="'. $this->aMeta['name'] .'-description" class="description">'. $this->aMeta['description'] .'</span>';
+        }
+        
+        if (!empty($this->aMeta['error']))
+        {
+        	$this->aExtras[] = '<span class="messages-error messages-error-inline">'. $this->aMeta['error'] .'</span>';
+        	$this->aClasses[] = 'input-error';
         }
 
         /*$aInlineErrors = Messages::GetInlineErrors($this->aMeta['name']);
@@ -719,6 +733,11 @@ $(document).ready(function()
         $this->aAttributes['name'] = $sName;
 
         return $sResult;
+    }
+    
+    private function RenderHtml()
+    {
+    	return $this->aMeta['value'];
     }
 
     // TODO: Implement Tags Element

@@ -5,7 +5,7 @@ class Builder_Helper_Grid extends Builder_Helper_Object
     public function __construct($sIdentity)
     {
         $this->aProperties['identity'] = $sIdentity;
-        $this->aAllowedProperties = array('identity', 'workflow', 'script', 'heading', 'subheading', 'columns', 'paging', 'group');
+        $this->aAllowedProperties = array('identity', 'workflow', 'script', 'heading', 'subheading', 'copy', 'columns', 'paging', 'group');
     }
 
     public function AddColumns(Builder_Helper_Columns $oColumns)

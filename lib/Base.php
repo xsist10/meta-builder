@@ -60,20 +60,6 @@ class Builder_Base
                         $sResult = substr($mData[$sKey], 0, $sTruncateLength) . $sEnding;
                     }
                     break;
-
-                case 'coordinates':
-
-                    $sId = implode('-', $aParams);
-                    $iLatitude = $mData[$aParams[0]];
-                    $iLongitude = $mData[$aParams[1]];
-
-                    if ($iLatitude && $iLongitude)
-                    {
-                        $sUrl = 'http://maps.google.com/?ll=' . $iLongitude .','. $iLatitude . '&z=16';
-                        $sResult .= '<a href="' . $sUrl . '"><img src="/html/images/16x16/map-pin.png" align="left" />' . $iLatitude . ', ' . $iLongitude . '</a>';
-                    }
-
-                    break;
             }
 
             return $sResult;
@@ -98,9 +84,28 @@ class Builder_Base
                 case 'email':
                     return '<a href="mailto:' . $mData[$sKey]. '">' . $mData[$sKey] . '</a>';
                 case 'ip_address':
-                     return $mData[$sKey] ? inet_ntoa($mData[$sKey]) : '<i>empty</i>';
+                    return $mData[$sKey] ? inet_ntoa($mData[$sKey]) : '<i>empty</i>';
+                case 'coordinates':
+                	if (!empty($mData[$sKey]))
+                	{
+	                    $aCoords = explode(',', $mData[$sKey]);
+	                    if (count($aCoords) == 2)
+	                    {
+	    	                $sUrl = 'http://maps.google.com/?ll=' . $aCoords[0] .','. $aCoords[1] . '&z=16';
+		                    return '<a href="' . $sUrl . '"><img src="' . BuildImage('16x16/map-pin.png') . '" align="left" />&nbsp;' . $aCoords[0] .', '. $aCoords[1] . '</a>';
+	                    }
+	                    else
+	                    {
+	                    	return '<i>Invalid Coords</i>';
+	                    }
+                	}
+                	else
+                	{
+                		return '<i>No Coords</i>';
+                	}
+                    break;
                 case 'relative_time':
-                     return $mData[$sKey] ? RelativeTime($mData[$sKey]) : '<i>empty</i>';
+                    return $mData[$sKey] ? RelativeTime($mData[$sKey]) : '<i>empty</i>';
                 case 'datetime':
                     return $mData[$sKey] ? date('Y-m-d H:i:s', $mData[$sKey]) : '<i>empty</i>';
                 case 'date':

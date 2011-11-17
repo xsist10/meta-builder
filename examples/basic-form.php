@@ -36,8 +36,8 @@ try
 	$oList = new Builder_Helper_List();
 	$oList->ImportListItems($aListItems);
 	
-	$oElement1 = new Builder_Helper_Element('salutation', 'list');
-	$oElement1->SetRenderMode('select')->SetList($oList)
+	$oElement1 = new Builder_Helper_Element('salutation', Builder_Form_Element::TYPE_LIST);
+	$oElement1->SetRenderMode(Builder_Form_Element::RENDER_MODE_SELECT)->SetList($oList)
 			  ->SetDescription('Please your salutation')
 			  ->SetValidation(new Builder_Helper_Validation(array('required' => true)));
 	
@@ -60,7 +60,7 @@ try
 	$oRow3->AddElement($oElement3);
 	
 	// Description
-	$oElement4 = new Builder_Helper_Element('description', 'richtext');
+	$oElement4 = new Builder_Helper_Element('description', Builder_Form_Element::TYPE_RICH_TEXT);
 	$oElement4->SetMode('advanced')->SetRows(8)->SetCols(45);
 	
 	$oRow4 = new Builder_Helper_Row('Description');
@@ -88,13 +88,13 @@ try
 	);
 	$oList4 = new Builder_Helper_List();
 	$oList4->ImportListItems($aListItems);
-	$oElement7 = new Builder_Helper_Element('gender', 'list');
-	$oElement7->SetRenderMode('radio')->SetList($oList4)->SetValue('female');
+	$oElement7 = new Builder_Helper_Element('gender', Builder_Form_Element::TYPE_LIST);
+	$oElement7->SetRenderMode(Builder_Form_Element::RENDER_MODE_RADIO)->SetList($oList4)->SetValue('female');
 	$oRow6 = new Builder_Helper_Row('Gender');
 	$oRow6->AddElement($oElement7);
 	
 	// Date of birth
-	$oElement9 = new Builder_Helper_Element('dob', 'date');
+	$oElement9 = new Builder_Helper_Element('dob', Builder_Form_Element::TYPE_DATE);
 	$oElement9->SetValue(date('Y-m-d'));
 	$oRow7 = new Builder_Helper_Row('Date of Birth');
 	$oRow7->SetImage('16x16/cake.png')->AddElement($oElement9);
@@ -110,8 +110,8 @@ try
 	);
 	$oList4 = new Builder_Helper_List();
 	$oList4->ImportListItems($aListItems);
-	$oElement10 = new Builder_Helper_Element('language', 'list');
-	$oElement10->SetRenderMode('checkbox')->SetList($oList4)
+	$oElement10 = new Builder_Helper_Element('language', Builder_Form_Element::TYPE_LIST);
+	$oElement10->SetRenderMode(Builder_Form_Element::RENDER_MODE_CHECKBOX)->SetList($oList4)
 			   ->SetValidation(new Builder_Helper_Validation(array('num_checked' => 1)));
 	$oRow8 = new Builder_Helper_Row('Languages');
 	$oRow8->SetImage('16x16/balloon.png')->AddElement($oElement10);
@@ -125,8 +125,8 @@ try
 	);
 	$oList5 = new Builder_Helper_List();
 	$oList5->ImportListItems($aListItems);
-	$oElement11 = new Builder_Helper_Element('country', 'list');
-	$oElement11->SetRenderMode('select')->SetList($oList5);
+	$oElement11 = new Builder_Helper_Element('country', Builder_Form_Element::TYPE_LIST);
+	$oElement11->SetRenderMode(Builder_Form_Element::RENDER_MODE_SELECT)->SetList($oList5);
 	$oRow9 = new Builder_Helper_Row('Country');
 	$oRow9->AddElement($oElement11);
 	 
@@ -134,13 +134,13 @@ try
 	$aListItems = array();
 	$oList->ImportListItems($aListItems);
 	
-	$oElement12 = new Builder_Helper_Element('telephone', 'telephone');
+	$oElement12 = new Builder_Helper_Element('telephone', Builder_Form_Element::TYPE_TELEPHONE);
 	$oElement12->SetValidation(new Builder_Helper_Validation(array('required' => true)));
 	$oRow10 = new Builder_Helper_Row('Telephone');
 	$oRow10->SetImage('16x16/mobile-phone.png')->AddElement($oElement12);
 	
 	// Build a submit button
-	$oElement13 = new Builder_Helper_Element('Action', 'submit');
+	$oElement13 = new Builder_Helper_Element('Action', Builder_Form_Element::TYPE_SUBMIT);
 	$oElement13->SetValue('Subscribe');
 	
 	// Build a row for our submit button
@@ -156,15 +156,29 @@ try
 				->AddRow($oRow9)->AddRow($oRow10)
 				->AddRow($oRow11);
 	
-	// Add our rows to a group with it's own heading and sub heading
+	// Build a HTML element
+	$oElement14 = new Builder_Helper_Element('marketing', Builder_Form_Element::TYPE_HTML);
+	$oElement14->SetValue('Custom <b>HTML</b> can be entered <i>here</i>!<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>');
+	
+	$oRow12 = new Builder_Helper_Row();
+	$oRow12->AddElement($oElement14)->SetRenderMode(Builder_Form::RENDER_MODE_INPUT_ONLY);
+	
+	$oRowsHelper2 = new Builder_Helper_Rows();
+	$oRowsHelper2->AddRow($oRow12);
+	
 	$oGroupHelper = new Builder_Helper_Group();
-	$oGroupHelper->SetHeading('Subscribe')->SetSubheading('Please provide these basic details to register.')
-				 ->SetCopy("Out wonderful service will completely justify handing over all your private data. Don't worry. You can trust us. Read out <a href='non-existant.html'>Privacy Policy</a>.");
-	$oGroupHelper->SetRows($oRowsHelper);
+	$oGroupHelper->SetHeading('Subscribe')->SetSubheading('Product Description.');
+	$oGroupHelper->SetRows($oRowsHelper2);
+
+	// Group the rest of the form
+	$oGroupHelper2 = new Builder_Helper_Group();
+	$oGroupHelper2->SetSubheading('Please provide these basic details to register.')
+				  ->SetCopy("Out wonderful service will completely justify handing over all your private data. Don't worry. You can trust us. Read out <a href='non-existant.html'>Privacy Policy</a>.");
+	$oGroupHelper2->SetRows($oRowsHelper);
 	
 	// Combine our groups
 	$oGroupsHelper = new Builder_Helper_Groups();
-	$oGroupsHelper->AddGroup($oGroupHelper);
+	$oGroupsHelper->AddGroup($oGroupHelper)->AddGroup($oGroupHelper2);
 	
 	// Add our groups to our form helper and set some basic attributes
 	$oFormHelper = new Builder_Helper_Form('test-form');

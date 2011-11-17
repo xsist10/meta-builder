@@ -1,0 +1,32 @@
+Change Log
+============================================================
+
+Version 1.1.1 - Minor fixes and features
+------------------------------------------------------------
+2011-11-17
+
+* Added previous/next to the paging controls
+
+* Added SetError on an element
+    > SetError([message]) will add a message to the element
+      and apply custom styling to highlight the element. 
+* Added map format control
+    > Calling SetFormat('coordinates') will turn co-ordinates
+      in a grid into a link to Google Maps
+      
+* Added HTML element
+    > Can add custom HTML as an element
+    
+* Added render-mode to rows. Rows can be rendered as either:
+    > Builder_Form::RENDER_MODE_INPUT_ONLY
+    > Builder_Form::RENDER_MODE_LABEL_INPUT
+
+* Added some Builder Helper constants (rather than using text
+values in parameter passing) 
+
+* Updated examples to use the new elements and format controls
+
+
+Version 1.1 - Initial Release
+------------------------------------------------------------
+* Initial release
