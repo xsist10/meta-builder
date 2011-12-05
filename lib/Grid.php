@@ -178,9 +178,11 @@ class Builder_Grid extends Builder_Base
                     if (!empty($aHeader['link']))
                     {
                         $aParams = array();
-                        $sLink = $aHeader['link']['path'];
+                        $sLink = !empty($aHeader['link']['key'])
+                        			? $aRow[$aHeader['link']['key']]
+                        			: $aHeader['link']['path'];
 
-                        if (count($aHeader['link']['param']))
+                        if (!empty($aHeader['link']['param']) && count($aHeader['link']['param']))
                         {
                             foreach ($aHeader['link']['param'] as $aParam)
                             {

@@ -221,6 +221,7 @@ class Builder_Form_Element
         if ($aInlineErrors && count($aInlineErrors))
         {
             $this->aExtras[] = '<span class="message-error message-error-inline">'. implode('<br/>', $aInlineErrors) .'</span>';
+            $this->aClasses[] = 'input-error';
         }*/
     }
 
@@ -284,7 +285,7 @@ class Builder_Form_Element
             $bSkipMatchValidation = false;
             switch ($this->aMeta['type'])
             {
-                case self::TYPE_EMAIL:
+//                case self::TYPE_EMAIL:
                 case self::TYPE_NUMBER:
                 case self::TYPE_URL:
                 case self::TYPE_DATE:

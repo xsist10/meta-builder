@@ -103,7 +103,7 @@ $(document).ready(function()
     $('input.input-hint-present').focus(function()
     {
         var hint = $(this).attr('hint');
-        if ($(this).val() == hint)
+        if ($(this).val() == hint || $(this).val() == '')
         {
             $(this).val('');
             $(this).removeClass('input-hint');
