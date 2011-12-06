@@ -23,6 +23,7 @@ class Builder_Form_Element
 
     // Basic Element Types
     const TYPE_TEXT                 = 'text';
+    const TYPE_TEXT_AREA            = 'textarea';
     const TYPE_RICH_TEXT			= 'rich_text';
     const TYPE_CHECKBOX             = 'checkbox';
     const TYPE_RADIO                = 'radio';
@@ -540,7 +541,7 @@ class Builder_Form_Element
 
                 if (!empty($this->aMeta['value']) && $aEntry['value'] == $this->aMeta['value'])
                 {
-                	$aAttributes = array('selected' => $aEntry['selected']);
+                	$aAttributes['selected'] = 'selected';
                 }
 
                 $sResult .= '<option ' . $this->RenderAttributes($aAttributes) . '>'. $sLabel .'</option>' ."\n";
