@@ -140,10 +140,10 @@ class Builder_Base
         }
     }
 
-    protected function SetConfig($aMeta, $aData = array())
+    protected function SetConfig($aMeta, $aData = null)
     {
         $this->aMeta = $aMeta;
-        if (!empty($aData))
+        if (isset($aData))
         {
             $this->aData = $aData;
         }

@@ -249,6 +249,7 @@ class Builder_Grid extends Builder_Base
 		$aTimer['Start'] = microtime(true);
 		
         $this->SetConfig($aMeta, $aData);
+        $this->sResult = '';
         $this->ConstructGridData($aMeta);
         $aFlags = $this->ConstructFlags($aMeta);
         $aRel = $this->ConstructFlagMeta($aMeta);
