@@ -153,7 +153,7 @@ class Builder_Base
     {
         $this->sResult .= '<script src="' . BuildUrl('html/javascript/'. $sScript) .'" type="text/javascript"></script>' . "\n";
     }*/
-    
+
     public function RenderMessages($aMessages)
     {
         foreach ($aMessages as $sType => $aTypeMessages)
@@ -165,7 +165,7 @@ class Builder_Base
             }
             echo '</ul>';
         }
-    }   
+    }
 
     public function Render($aMeta, $aData = array())
     {
@@ -174,4 +174,22 @@ class Builder_Base
         $this->Build($aMeta);
         return $this->sResult;
     }
+}
+
+/**
+ * Convert unsigned int to ip address
+ *
+ * @param  real $iIpAddress
+ * @return string
+ */
+function inet_ntoa($iIpAddress)
+{
+    if (PHP_INT_SIZE == 8)
+    {
+        if ($iIpAddress > 0x7FFFFFFF)
+        {
+            $iIpAddress -= 0x100000000;
+        }
+    }
+    return long2ip($iIpAddress);
 }
