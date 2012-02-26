@@ -6,7 +6,7 @@ class Builder_Helper_Column extends Builder_Helper_Object
     {
         $this->aAllowedProperties = array('name', 'type', 'label', 'sort', 'format', 'link');
     }
-    
+
     public function setFormat($sFunction, $mArguments = array())
     {
     	$sFormat = $sFunction;
@@ -22,5 +22,6 @@ class Builder_Helper_Column extends Builder_Helper_Object
     		}
     	}
     	$this->aProperties['format'] = $sFormat;
+        return $this;
     }
 }

@@ -31,7 +31,7 @@ class Builder_Base
                 case 'concat':
                     foreach ($aParams as $sParam)
                     {
-                        if (isset($mData[$sParam]))
+                        if (array_key_exists($sParam, $mData))
                         {
                             $sResult .= $mData[$sParam];
                         }
@@ -43,21 +43,22 @@ class Builder_Base
                     break;
 
                 case 'truncate':
-                    $sTruncateLength = !empty($aParams[0]) ? $aParams[0] : 40;
+                    $iTruncateLength = !empty($aParams[0]) ? $aParams[0] : 40;
                     $sEnding = '';
                     if (!empty($aParams[1]))
                     {
                         $sEnding = $aParams[1];
-                        $sTruncateLength -= strlen($sEnding);
+                        $iTruncateLength -= strlen($sEnding);
                     }
+                    $iDataLength = strlen($mData[$sKey]);
 
-                    if ($sTruncateLength <= strlen($mData[$sKey]))
+                    if ($iTruncateLength >= $iDataLength)
                     {
                         $sResult = $mData[$sKey];
                     }
                     else
                     {
-                        $sResult = substr($mData[$sKey], 0, $sTruncateLength) . $sEnding;
+                        $sResult = "<abbr title='" . $mData[$sKey] . "'>" . substr($mData[$sKey], 0, $iTruncateLength) . $sEnding . "</abbr>";
                     }
                     break;
             }
