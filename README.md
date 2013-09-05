@@ -18,15 +18,15 @@ require special cases which often plague form builders.
 Example Screenshots
 -----
 
-[![Calendar Popup](https://github.com/xsist10/meta-builder/raw/master/screenshots/calendar-popup.png)]($Calendar)
-![Advanced Form](screenshots/form-advanced.png)
-[![Basic Form](screenshots/form-basic.png)]
-![Basic Grid](https://raw.github.com/xsist10/meta-builder/master/screenshots/grid-basic.png "")
-![Grid with Grouping](https://raw.github.com/xsist10/meta-builder/master/screenshots/grid-with-grouping.png "")
-![Hints](https://raw.github.com/xsist10/meta-builder/master/screenshots/hints.png "")
-![Tooltip popups](https://raw.github.com/xsist10/meta-builder/master/screenshots/tooltip-popup.png "")
-![Validation Range](https://raw.github.com/xsist10/meta-builder/master/screenshots/validation-range.png "")
-![Validation Required](https://raw.github.com/xsist10/meta-builder/master/screenshots/validation-required.png "")
+![Calendar Popup](screenshots/calendar-popup.png "Calendar Popup")
+![Basic Form](screenshots/form-basic.png "Basic Form")
+![Advanced Form](screenshots/form-advanced.png "Advanced Form")
+![Basic Grid](screenshots/grid-basic.png "Basic Grid")
+![Grid with Grouping](screenshots/grid-with-grouping.png "Grid with Grouping")
+![Hints](screenshots/hints.png "Hints")
+![Tooltip popups](screenshots/tooltip-popup.png "Tooltip popups")
+![Validation Range](screenshots/validation-range.png "Validation Range")
+![Validation Required](screenshots/validation-required.png "Validation Required")
 
 This library has seperated the code into 4 major sections:
 
