@@ -16,17 +16,36 @@ work consistently and provide enough flexibility to not
 require special cases which often plague form builders.
 
 Example Screenshots
------
+=====
 
+Calendar Popup
+-----
 ![Calendar Popup](screenshots/calendar-popup.png "Calendar Popup")
-![Basic Form](screenshots/form-basic.png "Basic Form")
+
+Hints
+-----
+![Hints](screenshots/hints.png "Hints")
+
+Tooltops
+-----
+![Tooltip popups](screenshots/tooltip-popup.png "Tooltip popups")
+
+Validation Required
+-----
+![Validation Required](screenshots/validation-required.png "Validation Required")
+
+Validation Range
+-----
+![Validation Range](screenshots/validation-range.png "Validation Range")
+
+Advanced Form
+-----
 ![Advanced Form](screenshots/form-advanced.png "Advanced Form")
+
+Grids
+-----
 ![Basic Grid](screenshots/grid-basic.png "Basic Grid")
 ![Grid with Grouping](screenshots/grid-with-grouping.png "Grid with Grouping")
-![Hints](screenshots/hints.png "Hints")
-![Tooltip popups](screenshots/tooltip-popup.png "Tooltip popups")
-![Validation Range](screenshots/validation-range.png "Validation Range")
-![Validation Required](screenshots/validation-required.png "Validation Required")
 
 This library has seperated the code into 4 major sections:
 
