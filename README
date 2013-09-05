@@ -18,7 +18,8 @@ require special cases which often plague form builders.
 Example Screenshots
 -----
 
-[![Calendar Popup](https://raw.github.com/xsist10/meta-builder/master/screenshots/calendar-popup.png)]
+[![solarized dualmode](https://github.com/altercation/solarized/raw/master/img/solarized-yinyang.png)](#features)
+[![Calendar Popup](https://github.com/xsist10/meta-builder/raw/master/screenshots/calendar-popup.png)]($Calendar)
 ![Advanced Form](screenshots/form-advanced.png)
 [![Basic Form](screenshots/form-basic.png)]
 ![Basic Grid](https://raw.github.com/xsist10/meta-builder/master/screenshots/grid-basic.png "")
