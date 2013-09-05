@@ -18,9 +18,9 @@ require special cases which often plague form builders.
 Example Screenshots
 -----
 
-![Calendar Popup](https://raw.github.com/xsist10/meta-builder/master/screenshots/calendar-popup.png "")
-![Advanced Form](https://raw.github.com/xsist10/meta-builder/master/screenshots/form-advanced.png "")
-![Basic Form](https://raw.github.com/xsist10/meta-builder/master/screenshots/form-basic.png "")
+[![Calendar Popup](https://raw.github.com/xsist10/meta-builder/master/screenshots/calendar-popup.png)]
+![Advanced Form](screenshots/form-advanced.png)
+[![Basic Form](screenshots/form-basic.png)]
 ![Basic Grid](https://raw.github.com/xsist10/meta-builder/master/screenshots/grid-basic.png "")
 ![Grid with Grouping](https://raw.github.com/xsist10/meta-builder/master/screenshots/grid-with-grouping.png "")
 ![Hints](https://raw.github.com/xsist10/meta-builder/master/screenshots/hints.png "")
