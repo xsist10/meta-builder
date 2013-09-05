@@ -18,7 +18,13 @@ require special cases which often plague form builders.
 Example Screenshots
 -----
 
+
 [![solarized dualmode](https://github.com/altercation/solarized/raw/master/img/solarized-yinyang.png)](#features)
+
+![solarized palette](https://github.com/altercation/solarized/raw/master/img/solarized-palette.png)
+
+![solarized vim](https://github.com/altercation/solarized/raw/master/img/solarized-vim.png)
+
 [![Calendar Popup](https://github.com/xsist10/meta-builder/raw/master/screenshots/calendar-popup.png)]($Calendar)
 ![Advanced Form](screenshots/form-advanced.png)
 [![Basic Form](screenshots/form-basic.png)]
